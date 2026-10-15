@@ -1,0 +1,25 @@
+{
+  "name": "grwsure-menu-story",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/content.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "next": "16.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "motion": "14.2.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@playwright/test": "1.64.1"
+  }
+}
