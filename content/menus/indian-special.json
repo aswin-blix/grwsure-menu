@@ -42,6 +42,14 @@
           "veg": true,
           "image": "",
           "imageAlt": ""
+        },
+        {
+          "name": "Paneer Tikka",
+          "detail": "Grilled paneer and peppers with mint chutney",
+          "veg": true,
+          "price": 220,
+          "image": "",
+          "imageAlt": ""
         }
       ]
     },
@@ -53,14 +61,6 @@
           "detail": "Tender chicken in a slow-simmered onion and tomato gravy",
           "price": 240,
           "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Aloo Gobi",
-          "detail": "Potatoes and cauliflower with toasted spices",
-          "price": 160,
-          "veg": true,
           "image": "",
           "imageAlt": ""
         },
@@ -100,6 +100,14 @@
           "veg": true,
           "image": "",
           "imageAlt": ""
+        },
+        {
+          "name": "Rasmalai",
+          "detail": "Soft chenna rounds in saffron-scented milk",
+          "veg": true,
+          "price": 120,
+          "image": "",
+          "imageAlt": ""
         }
       ]
     },
@@ -119,6 +127,14 @@
           "detail": "Chilled yogurt drink, sweet or salted",
           "price": 80,
           "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Fresh Lime Soda",
+          "detail": "Fresh lime with sparkling water, sweet or salted",
+          "veg": true,
+          "price": 70,
           "image": "",
           "imageAlt": ""
         }

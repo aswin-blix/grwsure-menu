@@ -129,6 +129,14 @@
           "veg": true,
           "image": "",
           "imageAlt": ""
+        },
+        {
+          "name": "Masala Chai",
+          "detail": "Milk tea with cardamom, ginger and warming spices",
+          "veg": true,
+          "price": 60,
+          "image": "",
+          "imageAlt": ""
         }
       ]
     }

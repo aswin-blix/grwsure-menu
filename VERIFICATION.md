@@ -41,3 +41,7 @@ Search is removed from all four guest menu pages; earlier search checks above de
 - Browser regression checks assert absence of search boxes, retained category/vegetarian filters, placeholder counts, valid QR codes and 320px layouts.
 - A temporary photo fixture was built and tested in the browser: the configured local image loaded under the GitHub Pages prefix; aborting its request restored the placeholder. The fixture was removed and original blank photo fields restored before the final build.
 - No browser upload or admin editor was added; the GitHub editing workflow is documented in content/menus/README.md.
+
+## Three dishes per category — 15 October 2026
+
+All standard and event categories now contain exactly three dishes. The standard menu has 9 dishes; Christmas has 18; Indian Special and Diwali each have 12. Existing special/offer references remain valid. Added dishes use blank photo fields and illustrative prices. A content test enforces the count in every category, including the presentation preview. Christmas wording now identifies the menu as a curated adaptation rather than the full reference buffet.

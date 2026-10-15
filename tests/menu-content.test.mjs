@@ -35,3 +35,14 @@ test("standard menu references reuse source dishes and accurate offer prices",()
  assert.ok(specials.every(dish=>demoDishes.includes(dish)));
  assert.equal(todayOffer.regularPrice,standard.offer.itemIds.reduce((total,id)=>total+standard.dishes.find(dish=>dish.id===id).price,0));
 });
+test("every menu category contains exactly three dishes",async()=>{
+ const {menu:previewDishes}=await import("../lib/content.mjs");
+ for(const dishes of [demoDishes,previewDishes]){
+  for(const category of new Set(dishes.map(dish=>dish.category))){
+   assert.equal(dishes.filter(dish=>dish.category===category).length,3,category+" must contain three dishes");
+  }
+ }
+ for(const menu of eventMenus){
+  for(const section of menu.sections)assert.equal(section.items.length,3,menu.slug+" / "+section.title+" must contain three dishes");
+ }
+});

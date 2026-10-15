@@ -17,7 +17,7 @@
       "value": "BD 3"
     }
   ],
-  "note": "Buffet prices and dishes follow your reference poster. This is a demo, not a current event or booking offer. Please confirm children's age limits and dietary details with the restaurant.",
+  "note": "A curated sample inspired by your reference poster, with three dishes per category. BD 6 adult / BD 3 child buffet prices are illustrative, not a current event or booking offer. Please confirm children's age limits and dietary details with the restaurant.",
   "highlight": {
     "title": "The festive centrepiece",
     "description": "Roasted turkey with sautéed potatoes, vegetables and cranberry sauce.",
@@ -37,6 +37,13 @@
         {
           "name": "Murgh Dhaniya Shorba",
           "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Roasted Tomato Soup",
+          "detail": "Slow-roasted tomatoes with basil and a touch of cream",
+          "veg": true,
           "image": "",
           "imageAlt": ""
         }
@@ -60,26 +67,7 @@
           "imageAlt": ""
         },
         {
-          "name": "French Bean Salad",
-          "detail": "Caramelised onion and balsamic dressing",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
           "name": "Greek Grilled Chicken Salad",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Potato & Egg Salad",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Poached Prawn & Tomato Basil Salad",
           "veg": false,
           "image": "",
           "imageAlt": ""
@@ -102,12 +90,6 @@
           "imageAlt": ""
         },
         {
-          "name": "Sesame Prawn Toast",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
           "name": "Chicken Shish Tawook",
           "veg": false,
           "image": "",
@@ -119,25 +101,7 @@
       "title": "Main course",
       "items": [
         {
-          "name": "Veg Hakka Noodles",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Veg Malai Kofta",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
           "name": "Dal Makhani",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Veg Pulao",
           "veg": true,
           "image": "",
           "imageAlt": ""
@@ -145,30 +109,6 @@
         {
           "name": "Roasted Chicken",
           "detail": "Garlic potato wedges, sautéed vegetables and creamy mushroom jus",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Potato Lyonnaise",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Fish Manchurian Gravy",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Chicken Tikka Masala",
-          "veg": false,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Rara Mutton",
           "veg": false,
           "image": "",
           "imageAlt": ""
@@ -192,8 +132,15 @@
           "imageAlt": ""
         },
         {
-          "name": "Indian Breads",
-          "detail": "Roti / naan",
+          "name": "Roti",
+          "detail": "Fresh whole-wheat flatbread",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Naan",
+          "detail": "Soft Indian flatbread, served warm",
           "veg": true,
           "image": "",
           "imageAlt": ""
@@ -211,12 +158,6 @@
         },
         {
           "name": "Gulab Jamun",
-          "veg": true,
-          "image": "",
-          "imageAlt": ""
-        },
-        {
-          "name": "Basbousa",
           "veg": true,
           "image": "",
           "imageAlt": ""

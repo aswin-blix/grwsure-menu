@@ -8,7 +8,6 @@
       "veg": false,
       "rating": "4.8",
       "detail": "Seeraga samba rice with slow-cooked mutton chukka and house spices.",
-      "featuredOnly": true,
       "image": "",
       "imageAlt": ""
     },
@@ -35,17 +34,6 @@
       "imageAlt": ""
     },
     {
-      "id": "egg",
-      "category": "Biryani",
-      "name": "Egg Biryani",
-      "price": 180,
-      "veg": false,
-      "rating": "4.5",
-      "detail": "A comforting biryani with eggs and aromatic rice.",
-      "image": "",
-      "imageAlt": ""
-    },
-    {
       "id": "meal",
       "category": "Meals",
       "name": "South Indian Meals",
@@ -68,6 +56,17 @@
       "imageAlt": ""
     },
     {
+      "id": "fish-meal",
+      "category": "Meals",
+      "name": "Fish Curry Meals",
+      "detail": "Rice, coastal fish curry, vegetables and accompaniments.",
+      "veg": false,
+      "price": 220,
+      "image": "",
+      "imageAlt": "",
+      "rating": "4.6"
+    },
+    {
       "id": "paneer",
       "category": "Starters",
       "name": "Paneer Pepper Fry",
@@ -88,6 +87,17 @@
       "detail": "Crisp, spiced chicken bites to start your meal.",
       "image": "",
       "imageAlt": ""
+    },
+    {
+      "id": "gobi65",
+      "category": "Starters",
+      "name": "Gobi 65",
+      "detail": "Crisp cauliflower bites tossed with spices and curry leaves.",
+      "veg": true,
+      "price": 150,
+      "image": "",
+      "imageAlt": "",
+      "rating": "4.5"
     }
   ],
   "specialIds": [

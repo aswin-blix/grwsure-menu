@@ -58,3 +58,6 @@ Existing QR codes keep working when dish content or images change. Keep the same
 ## Checks and limitations
 
 The deployment runs menu validation, type checks and a static build. Invalid JSON, broken dish references or a missing configured photo stops publication. Check the failed Actions log, correct the file, and commit again. No search box, online ordering or review collection is included. Changes publish through GitHub; there is no live admin editor.
+## Three dishes per category
+
+Keep exactly three dishes in each standard category and each event menu section. To introduce a new dish to a full category, replace an existing entry. Automated validation enforces this count for the full menu and the presentation preview. Special cards highlight existing dishes; they are not an additional category. Vegetarian filtering may show fewer than three.
