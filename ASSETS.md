@@ -24,3 +24,5 @@ public/images/demo-qr.svg and demo-qr.png are newly generated functional codes, 
 ## Event-menu design references
 
 The user supplied WhatsApp Image 2026-10-15 at 9.18.15 PM.jpeg (Christmas buffet) and WhatsApp Image 2026-10-15 at 9.16.56 PM.jpeg (Indian menu). Their palette, layout and relevant menu text informed the new themes; the original JPEGs are not embedded or redistributed. Snowflake, lotus and diya motifs are local code-native SVG artwork. Diwali uses an original plum/gold theme. The six event QR assets are generated locally with the same QR generator as the standard demo.
+
+Menu-item photos are currently blank in the JSON content files. A shared code-native dish icon provides the themed photo placeholder. Future restaurant photos belong in public/images/menu and are referenced by the image field; no third-party stock images were added.

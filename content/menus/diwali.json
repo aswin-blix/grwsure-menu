@@ -1,0 +1,136 @@
+{
+  "slug": "diwali",
+  "theme": "diwali",
+  "title": "Diwali",
+  "subtitle": "A feast of light & togetherness",
+  "eyebrow": "Light the lamps. Share the joy.",
+  "intro": "Golden bites, festive favourites and a little extra sweetness. A vegetarian celebration made for sharing with the people you love.",
+  "occasion": "Festival of lights · Sample festive menu",
+  "currency": "₹",
+  "pricing": [
+    {
+      "label": "Festive thali",
+      "value": "₹499"
+    },
+    {
+      "label": "Menu",
+      "value": "Vegetarian"
+    }
+  ],
+  "note": "An illustrative Diwali menu, ready to customise with your restaurant's dishes, prices and event dates. No live offers, reservations or orders are collected.",
+  "highlight": {
+    "title": "The celebration thali",
+    "description": "Paneer makhani, dal tadka, jeera rice, two butter rotis, raita and gulab jamun.",
+    "label": "Festive special · ₹499"
+  },
+  "sections": [
+    {
+      "title": "Festive beginnings",
+      "items": [
+        {
+          "name": "Dahi Puri",
+          "detail": "Crisp puris, chilled yogurt and sweet-tangy chutneys",
+          "price": 120,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Hara Bhara Kebab",
+          "detail": "Golden spinach and green-pea patties",
+          "price": 160,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Paneer Tikka",
+          "detail": "Charred paneer with peppers and mint chutney",
+          "price": 220,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "The celebration table",
+      "items": [
+        {
+          "name": "Diwali Celebration Thali",
+          "detail": "Paneer makhani, dal tadka, jeera rice, two butter rotis, raita and gulab jamun",
+          "price": 499,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Paneer Makhani",
+          "detail": "Paneer in a creamy tomato and butter gravy",
+          "price": 240,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Vegetable Dum Biryani",
+          "detail": "Layered basmati rice, vegetables and fragrant spices",
+          "price": 220,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Sweet traditions",
+      "items": [
+        {
+          "name": "Kaju Katli",
+          "detail": "Four pieces of delicate cashew fudge",
+          "price": 140,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Gulab Jamun",
+          "detail": "Two warm dumplings in cardamom syrup",
+          "price": 90,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Rasmalai",
+          "detail": "Two soft chenna rounds in saffron milk",
+          "price": 120,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Raise a glass",
+      "items": [
+        {
+          "name": "Kesar Badam Milk",
+          "detail": "Saffron milk with almonds, served warm",
+          "price": 110,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Rose Lassi",
+          "detail": "Chilled yogurt blended with rose",
+          "price": 100,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    }
+  ]
+}

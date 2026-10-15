@@ -1,0 +1,107 @@
+{
+  "dishes": [
+    {
+      "id": "mutton-special",
+      "category": "Biryani",
+      "name": "Mutton Chukka Biryani",
+      "price": 280,
+      "veg": false,
+      "rating": "4.8",
+      "detail": "Seeraga samba rice with slow-cooked mutton chukka and house spices.",
+      "featuredOnly": true,
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "chicken",
+      "category": "Biryani",
+      "name": "Chicken Biryani",
+      "price": 220,
+      "veg": false,
+      "rating": "4.7",
+      "detail": "Seeraga samba rice, slow-cooked chicken and house masala.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "veg",
+      "category": "Biryani",
+      "name": "Veg Biryani",
+      "price": 160,
+      "veg": true,
+      "rating": "4.4",
+      "detail": "Fragrant rice, seasonal vegetables and warming spices.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "egg",
+      "category": "Biryani",
+      "name": "Egg Biryani",
+      "price": 180,
+      "veg": false,
+      "rating": "4.5",
+      "detail": "A comforting biryani with eggs and aromatic rice.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "meal",
+      "category": "Meals",
+      "name": "South Indian Meals",
+      "price": 140,
+      "veg": true,
+      "rating": "4.6",
+      "detail": "Rice, sambar, rasam and a selection of sides.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "chicken-meal",
+      "category": "Meals",
+      "name": "Chicken Meals",
+      "price": 200,
+      "veg": false,
+      "rating": "4.5",
+      "detail": "A hearty meal with chicken curry and accompaniments.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "paneer",
+      "category": "Starters",
+      "name": "Paneer Pepper Fry",
+      "price": 180,
+      "veg": true,
+      "rating": "4.6",
+      "detail": "Paneer tossed with pepper, onions and curry leaves.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "chicken65",
+      "category": "Starters",
+      "name": "Chicken 65",
+      "price": 190,
+      "veg": false,
+      "rating": "4.7",
+      "detail": "Crisp, spiced chicken bites to start your meal.",
+      "image": "",
+      "imageAlt": ""
+    }
+  ],
+  "specialIds": [
+    "mutton-special",
+    "paneer"
+  ],
+  "offer": {
+    "title": "A little more to savour.",
+    "description": "Veg Biryani + Paneer Pepper Fry",
+    "price": 299,
+    "itemIds": [
+      "veg",
+      "paneer"
+    ],
+    "terms": "Illustrative dine-in combo for this demo. One of each dish; no delivery or ordering is provided."
+  }
+}

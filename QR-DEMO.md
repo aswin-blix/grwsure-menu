@@ -11,14 +11,14 @@ It also provides a normal link for people already using a phone and a downloadab
 - Mutton Chukka Biryani (₹280) and Paneer Pepper Fry (₹180) as sample specials.
 - Dish ratings and prices, all explicitly illustrative.
 - Sample Veg Biryani + Paneer Pepper Fry combo: ₹299 instead of ₹340; save ₹41.
-- Search, category filtering, vegetarian-only filtering, and a resettable empty state.
+- Category filtering, vegetarian-only filtering, and a resettable empty state. Search has been removed.
 - No review form, personal-data collection, ordering, payment or WhatsApp submission on this demo page.
 
 The user requested a menu-only demo, so GitHub Pages remains sufficient. No backend or Vercel migration is needed.
 
 ## Maintenance
 
-Menu data is reused from lib/content.mjs. Specials, the sample offer and the canonical QR destination are in lib/demo-menu.mjs. The QR page is app/demo/, and the real QR section is in app/page.tsx.
+Dish content, special selections and the sample offer are edited in content/menus/standard.json. The canonical QR destination remains in lib/demo-menu.mjs. The QR page is app/demo/, and the real QR section is in app/page.tsx.
 
 If the public URL changes, update DEMO_MENU_URL, run npm run generate:qr, and deploy the resulting SVG and PNG together. The old QR URL will not automatically follow a new domain or repository.
 
@@ -39,10 +39,12 @@ Christmas uses dishes and BD 6 adult / BD 3 child prices from the supplied poste
 
 ### Add or update an occasion
 
-Edit lib/event-menus.mjs. Each entry supplies a unique lowercase hyphenated slug, theme, title, introduction, pricing, highlight and menu sections. Dish prices are optional for buffet menus. veg: true means vegetarian; false means non-vegetarian; omit it when ingredients need confirmation.
+Edit content/menus/*.json (registered in lib/event-menus.mjs). Each entry supplies a unique lowercase hyphenated slug, theme, title, introduction, pricing, highlight and menu sections. Dish prices are optional for buffet menus. veg: true means vegetarian; false means non-vegetarian; omit it when ingredients need confirmation.
 
 The shared route app/menus/[slug]/page.tsx statically exports every configured menu. EventMenuCards automatically adds its homepage QR card. Reuse an existing theme or add a scoped theme in app/menus/events.css and its matching card style in app/globals.css; motifs are in components/event-motif.tsx. Add tests for any new theme.
 
 Run npm run generate:qr after adding a menu or changing a slug. This writes separate SVG and PNG codes to public/images/{slug}-qr.*. Keep existing slugs to preserve printed QR links; menu content can change without reprinting its QR. Then run npm test, npm run typecheck, build with NEXT_PUBLIC_BASE_PATH=/grwsure-menu, and node tests/pages-export.mjs before publishing.
 
 Updates require editing the source and redeploying; there is no admin editor or automatic seasonal switching. All current menus stay available at their own URLs.
+
+For step-by-step dish, price and photo updates in GitHub, see [the menu editing guide](content/menus/README.md). Each dish has image and imageAlt fields; blank photos render placeholders.

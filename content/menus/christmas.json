@@ -1,0 +1,233 @@
+{
+  "slug": "christmas",
+  "theme": "christmas",
+  "title": "Christmas",
+  "subtitle": "Eve dinner buffet",
+  "eyebrow": "A table full of Christmas joy",
+  "intro": "Gather your favourite people. Share a generous festive feast, from warming soups to a sweet final bite.",
+  "occasion": "Christmas Eve · Sample celebration",
+  "currency": "BD",
+  "pricing": [
+    {
+      "label": "Adult buffet",
+      "value": "BD 6"
+    },
+    {
+      "label": "Kids buffet",
+      "value": "BD 3"
+    }
+  ],
+  "note": "Buffet prices and dishes follow your reference poster. This is a demo, not a current event or booking offer. Please confirm children's age limits and dietary details with the restaurant.",
+  "highlight": {
+    "title": "The festive centrepiece",
+    "description": "Roasted turkey with sautéed potatoes, vegetables and cranberry sauce.",
+    "label": "Live carving display"
+  },
+  "sections": [
+    {
+      "title": "Soup",
+      "items": [
+        {
+          "name": "Thai Pumpkin Soup",
+          "detail": "With coconut milk",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Murgh Dhaniya Shorba",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Salad",
+      "items": [
+        {
+          "name": "Garden Salad",
+          "detail": "Cucumber, cherry tomato, corn and bell pepper; olives and lemon-mustard dressing",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Roasted Beetroot & Orange",
+          "detail": "Walnut, feta and pomegranate dressing",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "French Bean Salad",
+          "detail": "Caramelised onion and balsamic dressing",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Greek Grilled Chicken Salad",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Potato & Egg Salad",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Poached Prawn & Tomato Basil Salad",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Starter",
+      "items": [
+        {
+          "name": "Hariyali Paneer Tikka",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Veg Spring Rolls",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Sesame Prawn Toast",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Chicken Shish Tawook",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Main course",
+      "items": [
+        {
+          "name": "Veg Hakka Noodles",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Veg Malai Kofta",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Dal Makhani",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Veg Pulao",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Roasted Chicken",
+          "detail": "Garlic potato wedges, sautéed vegetables and creamy mushroom jus",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Potato Lyonnaise",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Fish Manchurian Gravy",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Chicken Tikka Masala",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Rara Mutton",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Mughlai Chicken Biryani",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Live display & breads",
+      "items": [
+        {
+          "name": "Roasted Turkey",
+          "detail": "Sautéed potatoes, vegetables and cranberry sauce",
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Indian Breads",
+          "detail": "Roti / naan",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Desserts",
+      "items": [
+        {
+          "name": "Black Forest Cake",
+          "detail": "Please check egg content with the serving team",
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Gulab Jamun",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Basbousa",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Rasmalai",
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "slug": "indian-special",
+  "theme": "indian",
+  "title": "Indian Special",
+  "subtitle": "A celebration of familiar flavours",
+  "eyebrow": "From our kitchen, with warmth",
+  "intro": "Crisp starters. Slow-simmered curries. Something sweet to finish. Settle in for the flavours that bring us together.",
+  "occasion": "The Indian collection · Sample à la carte",
+  "currency": "₹",
+  "pricing": [
+    {
+      "label": "Menu style",
+      "value": "À la carte"
+    },
+    {
+      "label": "Prices in",
+      "value": "INR · ₹"
+    }
+  ],
+  "note": "Inspired by your Indian menu reference. All prices below are illustrative INR prices, not conversions of the reference's dollar prices.",
+  "highlight": {
+    "title": "Biryani, the house favourite",
+    "description": "Fragrant basmati rice layered with chicken, warming spices and fresh herbs.",
+    "label": "Chef's special · ₹260"
+  },
+  "sections": [
+    {
+      "title": "Appetizers",
+      "items": [
+        {
+          "name": "Samosa",
+          "detail": "Crisp pastry with spiced potatoes and peas",
+          "price": 80,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Pakora",
+          "detail": "Seasonal vegetables in a crisp gram-flour batter",
+          "price": 100,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Main courses",
+      "items": [
+        {
+          "name": "Chicken Curry",
+          "detail": "Tender chicken in a slow-simmered onion and tomato gravy",
+          "price": 240,
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Aloo Gobi",
+          "detail": "Potatoes and cauliflower with toasted spices",
+          "price": 160,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Dal Tadka",
+          "detail": "Yellow lentils finished with an aromatic tempering",
+          "price": 140,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Chicken Biryani",
+          "detail": "Spiced basmati rice with chicken and fresh herbs",
+          "price": 260,
+          "veg": false,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Dessert",
+      "items": [
+        {
+          "name": "Gulab Jamun",
+          "detail": "Soft milk dumplings in fragrant sugar syrup",
+          "price": 90,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Kheer",
+          "detail": "Creamy rice pudding with cardamom and nuts",
+          "price": 100,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    },
+    {
+      "title": "Drinks",
+      "items": [
+        {
+          "name": "Masala Chai",
+          "detail": "Tea brewed with milk and warming spices",
+          "price": 50,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        },
+        {
+          "name": "Lassi",
+          "detail": "Chilled yogurt drink, sweet or salted",
+          "price": 80,
+          "veg": true,
+          "image": "",
+          "imageAlt": ""
+        }
+      ]
+    }
+  ]
+}

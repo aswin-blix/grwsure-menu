@@ -7,6 +7,9 @@ import jsQR from "jsqr";
 import { chromium, expect } from "@playwright/test";
 import {eventMenus, eventMenuUrl} from "../lib/event-menus.mjs";
 
+import {demoDishes,specials,todayOffer} from "../lib/demo-menu.mjs";
+import {menu as previewMenu} from "../lib/content.mjs";
+
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "/grwsure-menu";
 const root = resolve("out");
 const mime = {".svg":"image/svg+xml",".png":"image/png",".html":"text/html",".js":"text/javascript",".css":"text/css",".webp":"image/webp",".ttf":"font/ttf",".woff2":"font/woff2",".txt":"text/plain"};
@@ -34,7 +37,7 @@ try{
  await expect(page.getByRole("heading",{level:1})).toContainText("One little scan");
  await expect(page.locator(".hero-art img")).toHaveAttribute("src",prefix+"/images/hero.webp");
  await page.getByRole("button",{name:"Meals",exact:true}).click();
- await expect(page.locator(".dish")).toHaveCount(2);
+ await expect(page.locator(".dish")).toHaveCount(previewMenu.filter(dish=>dish.category==="Meals").length);
  await page.getByRole("button",{name:"03 Entrance A-frame"}).click();
  await expect(page.locator(".display-image img")).toHaveAttribute("src",prefix+"/images/entrance.webp");
  await page.locator(".display-image img").evaluate(img=>img.decode());
@@ -54,19 +57,21 @@ try{
  await expect(page).toHaveURL(new RegExp(prefix+"/demo/$"));
  await expect(page.getByRole("heading",{level:1})).toContainText("Kaveri");
  await expect(page.locator(".special-dish")).toHaveCount(2);
- await expect(page.locator(".special-dish").first()).toContainText("₹280");
- await expect(page.locator(".today-offer")).toContainText("₹299");
- await expect(page.locator(".restaurant-dish")).toHaveCount(8);
- await page.getByRole("searchbox",{name:"Search the menu"}).fill("paneer");
- await expect(page.locator(".restaurant-dish")).toHaveCount(1);
- await page.getByLabel("Vegetarian only").check();
+ await expect(page.locator(".special-dish").first()).toContainText("₹"+specials[0].price);
+ await expect(page.locator(".today-offer")).toContainText("₹"+todayOffer.price);
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.length);
+ await expect(page.locator(".restaurant-dish .dish-image[data-placeholder=true]")).toHaveCount(demoDishes.filter(dish=>!dish.image).length);
+ await expect(page.getByRole("searchbox")).toHaveCount(0);
  await page.getByRole("button",{name:"Biryani",exact:true}).click();
- await expect(page.getByRole("status")).toContainText("No dishes found");
- await page.getByRole("button",{name:"Show all dishes",exact:true}).click();
- await expect(page.locator(".restaurant-dish")).toHaveCount(8);
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.filter(dish=>dish.category==="Biryani").length);
  await page.getByLabel("Vegetarian only").check();
- await expect(page.locator(".restaurant-dish")).toHaveCount(3);
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.filter(dish=>dish.category==="Biryani"&&dish.veg).length);
+ await page.getByRole("button",{name:"Meals",exact:true}).click();
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.filter(dish=>dish.category==="Meals"&&dish.veg).length);
+ await page.getByRole("button",{name:"All",exact:true}).click();
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.filter(dish=>dish.veg).length);
  await page.getByLabel("Vegetarian only").uncheck();
+ await expect(page.locator(".restaurant-dish")).toHaveCount(demoDishes.length);
  await expect(page.locator("form, textarea")).toHaveCount(0);
  await mkdir("test-results",{recursive:true});
  await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));
@@ -99,17 +104,9 @@ try{
   await expect(page.getByRole("heading",{level:1})).toHaveText(menu.title);
   const allDishes=menu.sections.flatMap(section=>section.items);
   await expect(page.locator(".event-dish")).toHaveCount(allDishes.length);
-  const search=page.getByRole("searchbox",{name:"Search this menu"});
-  await search.fill("zzzx-no-such-dish-zzzx");
-  await expect(page.locator(".event-dish")).toHaveCount(0);
-  await expect(page.getByRole("status")).toBeVisible();
-  await page.getByRole("button",{name:"Clear filters",exact:true}).click();
-  await expect(search).toHaveValue("");
-  await expect(page.locator(".event-dish")).toHaveCount(allDishes.length);
-  await search.fill("  "+allDishes[0].name.toUpperCase()+"  ");
-  assert.ok(await page.locator(".event-dish").count()>0,"Search should trim whitespace and ignore case");
+  await expect(page.locator(".event-dish .dish-image[data-placeholder=true]")).toHaveCount(allDishes.filter(dish=>!dish.image).length);
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
   for(const href of await page.locator(".event-categories a").evaluateAll(links=>links.map(link=>link.getAttribute("href")))) await expect(page.locator(href)).toHaveCount(1);
-  await search.fill("");
   await page.getByRole("checkbox",{name:"Vegetarian only"}).check();
   await expect(page.locator(".event-dish")).toHaveCount(allDishes.filter(dish=>dish.veg===true).length);
   await page.getByRole("checkbox",{name:"Vegetarian only"}).uncheck();
@@ -123,7 +120,7 @@ try{
   await page.screenshot({path:"test-results/"+menu.slug+"-mobile.png",fullPage:true});
  }
  assert.deepEqual(failures,[]);assert.deepEqual(errors,[]);
- console.log("PASS: Pages asset paths, rendered QR decoding, demo menu, specials, offers, ratings, search/category/vegetarian filters, empty state, dedicated Christmas/Indian/Diwali themes and QR codes, 320px layout and no missing resources.");
+ console.log("PASS: Pages asset paths, rendered QR decoding, demo menu, specials, offers, ratings, no search UI, category/vegetarian filters, dedicated Christmas/Indian/Diwali themes and QR codes, 320px layout and no missing resources.");
 }finally{
  await browser.close();
  await new Promise(resolve=>server.close(resolve));

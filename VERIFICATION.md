@@ -32,3 +32,12 @@ Six unit tests pass, including independent decoding of the generated QR PNG and 
 - Production-export browser checks pass: all rendered QR cards decode correctly; event routes return 200; theme/title/dish counts match; search, empty-state reset and vegetarian filters work; filtered section links retain valid targets; layouts fit 320px; no missing resources or browser errors.
 - Desktop/mobile screenshots inspected for the event themes. Christmas mobile heading sizing was tightened for small screens.
 - Existing presentation and standard restaurant demo regression checks pass. No physical phone-camera scan was performed.
+
+## Editable content and optional dish photos — 15 October 2026
+
+Search is removed from all four guest menu pages; earlier search checks above describe the previous version. Menu content now lives in formatted JSON files under content/menus, with optional image/imageAlt fields on every dish.
+
+- Unit tests validate content, image paths/files, dish references, offer arithmetic and QR destinations without locking editable dish prices to old snapshots.
+- Browser regression checks assert absence of search boxes, retained category/vegetarian filters, placeholder counts, valid QR codes and 320px layouts.
+- A temporary photo fixture was built and tested in the browser: the configured local image loaded under the GitHub Pages prefix; aborting its request restored the placeholder. The fixture was removed and original blank photo fields restored before the final build.
+- No browser upload or admin editor was added; the GitHub editing workflow is documented in content/menus/README.md.

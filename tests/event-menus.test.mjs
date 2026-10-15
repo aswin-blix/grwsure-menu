@@ -6,7 +6,7 @@ import jsQR from "jsqr";
 import {eventMenus, eventMenuUrl} from "../lib/event-menus.mjs";
 
 test("event menus have unique safe routes and valid menu content",()=>{
- assert.deepEqual(eventMenus.map(menu=>menu.slug).sort(),["christmas","diwali","indian-special"]);
+ assert.ok(eventMenus.length>0);
  assert.equal(new Set(eventMenus.map(menu=>menu.slug)).size,eventMenus.length);
  for(const menu of eventMenus){
   assert.match(menu.slug,/^[a-z]+(?:-[a-z]+)*$/);
@@ -30,9 +30,16 @@ test("event menus have unique safe routes and valid menu content",()=>{
  }
 });
 
-test("Christmas buffet preserves reference pricing",()=>{
- const christmas=eventMenus.find(menu=>menu.slug==="christmas");
- assert.deepEqual(christmas.pricing.map(price=>price.value),["BD 6","BD 3"]);
+test("event pricing remains editable with clear labels and display values",()=>{
+ for(const menu of eventMenus){
+  assert.ok(typeof menu.currency==="string"&&menu.currency.trim());
+  assert.ok(Array.isArray(menu.pricing)&&menu.pricing.length>0);
+  assert.equal(new Set(menu.pricing.map(price=>price.label)).size,menu.pricing.length);
+  for(const price of menu.pricing){
+   assert.ok(typeof price.label==="string"&&price.label.trim());
+   assert.ok(typeof price.value==="string"&&price.value.trim());
+  }
+ }
 });
 
 for(const menu of eventMenus){
