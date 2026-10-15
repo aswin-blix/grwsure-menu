@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { assetPath } from "../lib/assets";
 import DishIcon from "../components/dish-icon";
+import EventMenuCards from "../components/event-menu-cards";
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { plans, planFee, filterMenu, thankYou, demoLink } from "../lib/content.mjs";
 
@@ -69,6 +70,7 @@ export default function Home(){
  <div className="live-qr-card"><span className="eyebrow">Kaveri Kitchen · Demo</span><h3>Your table.<br/>Your menu.</h3><a href={assetPath("/demo/")} aria-label="Open Kaveri Kitchen demo menu"><img src={assetPath("/images/demo-qr.svg")} alt="Scan this QR code to open the live Kaveri Kitchen demo menu" width="250" height="250"/></a><strong>SCAN FOR THE MENU</strong><p>Specials · Prices · Ratings · Offers</p><a className="text-link" href={assetPath("/images/demo-qr.png")} download="grwsure-demo-qr.png">Download this QR ↓</a></div>
  </section>
 
+ <EventMenuCards/>
  <section className="story-section container" id="story">
  <div className="section-heading"><p className="eyebrow">A visit, reimagined</p><h2>Good hospitality.<br/><em>Now on their phone.</em></h2><p>Follow one guest from the first scan to the next hello.</p></div>
  <div className="story-grid">

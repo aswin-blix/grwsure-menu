@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { PNG } from "pngjs";
 import jsQR from "jsqr";
 import { chromium, expect } from "@playwright/test";
+import {eventMenus, eventMenuUrl} from "../lib/event-menus.mjs";
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "/grwsure-menu";
 const root = resolve("out");
@@ -79,8 +80,50 @@ try{
  await page.getByRole("link",{name:"Back to the QR presentation"}).click();
  await expect(page).toHaveURL(new RegExp(prefix+"/#scan-demo$"));
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,"Presentation QR must fit 320px");
+ await expect(page.locator(".event-qr-card")).toHaveCount(3);
+ for(const menu of eventMenus){
+  const destination=prefix+"/menus/"+menu.slug+"/";
+  const card=page.locator(".event-qr-card").filter({has:page.locator('a[href="'+destination+'"]')});
+  await expect(card).toHaveCount(1);
+  const qr=card.locator("img");
+  await qr.scrollIntoViewIfNeeded();
+  await qr.evaluate(img=>img.decode());
+  const pixels=PNG.sync.read(await qr.screenshot());
+  const eventCode=jsQR(new Uint8ClampedArray(pixels.data),pixels.width,pixels.height);
+  assert.equal(eventCode?.data,eventMenuUrl(menu.slug),menu.slug+" rendered QR must scan to its own menu");
+ }
+ for(const menu of eventMenus){
+  const response=await page.goto("http://127.0.0.1:"+address.port+prefix+"/menus/"+menu.slug+"/",{waitUntil:"networkidle"});
+  assert.equal(response.status(),200);
+  await expect(page.locator(".event-menu")).toHaveAttribute("data-theme",menu.theme);
+  await expect(page.getByRole("heading",{level:1})).toHaveText(menu.title);
+  const allDishes=menu.sections.flatMap(section=>section.items);
+  await expect(page.locator(".event-dish")).toHaveCount(allDishes.length);
+  const search=page.getByRole("searchbox",{name:"Search this menu"});
+  await search.fill("zzzx-no-such-dish-zzzx");
+  await expect(page.locator(".event-dish")).toHaveCount(0);
+  await expect(page.getByRole("status")).toBeVisible();
+  await page.getByRole("button",{name:"Clear filters",exact:true}).click();
+  await expect(search).toHaveValue("");
+  await expect(page.locator(".event-dish")).toHaveCount(allDishes.length);
+  await search.fill("  "+allDishes[0].name.toUpperCase()+"  ");
+  assert.ok(await page.locator(".event-dish").count()>0,"Search should trim whitespace and ignore case");
+  for(const href of await page.locator(".event-categories a").evaluateAll(links=>links.map(link=>link.getAttribute("href")))) await expect(page.locator(href)).toHaveCount(1);
+  await search.fill("");
+  await page.getByRole("checkbox",{name:"Vegetarian only"}).check();
+  await expect(page.locator(".event-dish")).toHaveCount(allDishes.filter(dish=>dish.veg===true).length);
+  await page.getByRole("checkbox",{name:"Vegetarian only"}).uncheck();
+  await expect(page.locator(".event-dish")).toHaveCount(allDishes.length);
+  await expect(page.locator("form, textarea")).toHaveCount(0);
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));
+  await page.screenshot({path:"test-results/"+menu.slug+"-desktop.png",fullPage:true});
+  await page.setViewportSize({width:320,height:844});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,menu.slug+" menu must fit 320px");
+  await page.screenshot({path:"test-results/"+menu.slug+"-mobile.png",fullPage:true});
+ }
  assert.deepEqual(failures,[]);assert.deepEqual(errors,[]);
- console.log("PASS: Pages asset paths, rendered QR decoding, demo menu, specials, offers, ratings, search/category/vegetarian filters, empty state, 320px layout and no missing resources.");
+ console.log("PASS: Pages asset paths, rendered QR decoding, demo menu, specials, offers, ratings, search/category/vegetarian filters, empty state, dedicated Christmas/Indian/Diwali themes and QR codes, 320px layout and no missing resources.");
 }finally{
  await browser.close();
  await new Promise(resolve=>server.close(resolve));

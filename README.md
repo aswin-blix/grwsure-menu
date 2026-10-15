@@ -76,3 +76,6 @@ The React DevTools download notice is informational. Development HMR is not incl
 ## Scannable demo menu
 
 See QR-DEMO.md for the real QR-linked restaurant menu at /demo/. It shows illustrative specials, prices, ratings and an offer, with search and filters. It has no review form or data collection. Run npm run generate:qr after changing the canonical demo URL.
+### Themed menus
+
+The presentation includes dedicated Christmas, Indian Special and Diwali QR codes linking to /menus/{slug}/. Each is a responsive static menu with its own visual theme, search and vegetarian filter. Add occasions through lib/event-menus.mjs; see QR-DEMO.md for content, QR regeneration and publishing instructions.

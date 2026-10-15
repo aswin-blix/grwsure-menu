@@ -1,0 +1,5 @@
+export default function EventMotif({theme}:{theme:string}) {
+ if(theme==="christmas") return <svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><g stroke="currentColor" strokeWidth="3" strokeLinecap="round">{[0,60,120,180,240,300].map(angle=><g key={angle} transform={`rotate(${angle} 60 60)`}><path d="M60 60V12M48 22l12 12 12-12M48 39l12 12 12-12"/></g>)}</g></svg>;
+ if(theme==="diwali") return <svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><path d="M60 12c-23 27-18 43 0 43s22-19 0-43Z" fill="currentColor"/><path d="M19 65h82c-3 30-22 42-41 42S22 95 19 65Z" stroke="currentColor" strokeWidth="3"/><path d="M28 74c19 13 45 13 64 0M6 38l9 6M114 38l-9 6M28 14l5 9M92 14l-5 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/></svg>;
+ return <svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><path d="M60 15c-28 24-29 49 0 70 29-21 28-46 0-70Z" fill="currentColor"/><path d="M20 40c-2 28 11 42 36 45C46 64 35 50 20 40Zm80 0c2 28-11 42-36 45 10-21 21-35 36-45Z" stroke="currentColor" strokeWidth="3"/><path d="M17 93c22-10 35-6 43 9 8-15 21-19 43-9" stroke="currentColor" strokeWidth="3"/></svg>;
+}

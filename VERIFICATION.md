@@ -25,3 +25,10 @@ Validation: 4 unit tests passed, strict TypeScript passed, production build pass
 ## QR menu demo
 
 Six unit tests pass, including independent decoding of the generated QR PNG and offer arithmetic. Strict TypeScript and the GitHub Pages subpath build pass. Export browser checks decode the rendered QR SVG screenshot, follow the demo link, exercise search/category/vegetarian filters and empty-state reset, check specials and offer pricing, verify no review form, and cover 320px layouts. Mobile and desktop menu screenshots were visually inspected. The narrow-screen QR-card overflow found in review is fixed and regression-tested. These checks do not claim a physical-phone camera test.
+## Event menu collection — 15 October 2026
+
+- 12 unit tests pass, including independent decoding of all four menu QR images and rejection of unknown event QR destinations.
+- TypeScript and the GitHub Pages static build pass. All three /menus/{slug}/ routes are exported.
+- Production-export browser checks pass: all rendered QR cards decode correctly; event routes return 200; theme/title/dish counts match; search, empty-state reset and vegetarian filters work; filtered section links retain valid targets; layouts fit 320px; no missing resources or browser errors.
+- Desktop/mobile screenshots inspected for the event themes. Christmas mobile heading sizing was tightened for small screens.
+- Existing presentation and standard restaurant demo regression checks pass. No physical phone-camera scan was performed.
