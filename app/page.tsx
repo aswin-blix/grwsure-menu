@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import { assetPath } from "../lib/assets";
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { plans, planFee, filterMenu, thankYou, demoLink } from "../lib/content.mjs";
 
@@ -39,7 +40,7 @@ export default function Home(){
  <a className="skip-link" href="#main">Skip to content</a>
  <motion.div className="reading-progress" style={{scaleX:reduce?scrollYProgress:progress}}/>
  <header className="site-header"><nav className="container" aria-label="Main navigation">
- <a href="#" className="brand" aria-label="GRWSURE home"><img src="/images/logo.webp" alt="GRWSURE Education & Consulting" width="215" height="65"/></a>
+ <a href="#" className="brand" aria-label="GRWSURE home"><img src={assetPath("/images/logo.webp")} alt="GRWSURE Education & Consulting" width="215" height="65"/></a>
  <div className="nav-links"><a href="#story">The experience</a><a href="#displays">QR displays</a><a href="#pricing">Pricing</a></div>
  <a className="button small-button" href="#contact">Let's talk <Arrow/></a>
  </nav></header>
@@ -55,7 +56,7 @@ export default function Home(){
  </div>
  <motion.div className="hero-art" initial={false} animate={{rotate:reduce?0:[0,-1.2,0],y:reduce?0:[0,-8,0]}} transition={{duration:7,repeat:reduce?0:Infinity,ease:"easeInOut"}}>
  <div className="hero-orbit"/><span className="hero-note">A better meal starts<br/>with a simple scan.</span>
- <img src="/images/hero.webp" alt="Original catalog preview: a table QR card beside the Kaveri Kitchen mobile menu" width="1200" height="1312" fetchPriority="high"/>
+ <img src={assetPath("/images/hero.webp")} alt="Original catalog preview: a table QR card beside the Kaveri Kitchen mobile menu" width="1200" height="1312" fetchPriority="high"/>
  <div className="floating-label"><span className="status-dot"/> Smart menus. Happy guests.</div>
  <span className="sample-note">Illustrative restaurant & menu</span>
  </motion.div>
@@ -69,7 +70,7 @@ export default function Home(){
  <div className="story-visual">
  <div className="story-stage">
  <span className="stage-number" aria-hidden="true">0{active+1}</span>
- <AnimatePresence mode="wait" initial={false}><motion.img key={active} src={`/images/${chapters[active].image}.webp`} alt={`Catalog example: ${chapters[active].label} screen`} width="660" height="1358" initial={{opacity:0,y:reduce?0:18}} animate={{opacity:1,y:0}} exit={{opacity:0,y:reduce?0:-12}} transition={{duration:reduce?0:.3}}/></AnimatePresence>
+ <AnimatePresence mode="wait" initial={false}><motion.img key={active} src={assetPath(`/images/${chapters[active].image}.webp`)} alt={`Catalog example: ${chapters[active].label} screen`} width="660" height="1358" initial={{opacity:0,y:reduce?0:18}} animate={{opacity:1,y:0}} exit={{opacity:0,y:reduce?0:-12}} transition={{duration:reduce?0:.3}}/></AnimatePresence>
  <span className="stage-badge">KAVERI KITCHEN · SAMPLE</span>
  </div>
  <div className="chapter-controls" aria-label="Guest journey stages">{chapters.map((chapter,i)=><button key={chapter.label} type="button" aria-label={`0${i+1} ${chapter.label}`} aria-pressed={active===i} onClick={()=>{setActive(i);if(window.innerWidth>800)chapterRefs.current[i]?.scrollIntoView({behavior:reduce?"instant":"smooth",block:"center"});}}><span>0{i+1}</span>{chapter.label}</button>)}</div>
@@ -104,7 +105,7 @@ export default function Home(){
  <section className="displays-section" id="displays"><div className="container">
  <div className="display-heading"><div><p className="eyebrow">A place in your space</p><h2>Small displays.<br/><em>A clear invitation.</em></h2></div><p>From the entrance to the table, make your menu easy to discover. The display concepts below come directly from our catalog.</p></div>
  <div className="display-showcase">
- <div className="display-image"><AnimatePresence mode="wait" initial={false}><motion.img key={display} src={`/images/${displays[display].id}.webp`} alt={displays[display].type+" design from the catalog"} width="925" height="845" loading="lazy" initial={{opacity:0,scale:reduce?1:.98}} animate={{opacity:1,scale:1}} exit={{opacity:0}} transition={{duration:.2}}/></AnimatePresence><span>CATALOG DESIGN / 0{display+1}</span></div>
+ <div className="display-image"><AnimatePresence mode="wait" initial={false}><motion.img key={display} src={assetPath(`/images/${displays[display].id}.webp`)} alt={displays[display].type+" design from the catalog"} width="925" height="845" loading="lazy" initial={{opacity:0,scale:reduce?1:.98}} animate={{opacity:1,scale:1}} exit={{opacity:0}} transition={{duration:.2}}/></AnimatePresence><span>CATALOG DESIGN / 0{display+1}</span></div>
  <div className="display-copy"><div className="display-tabs" aria-label="Display options">{displays.map((item,i)=><button key={item.id} type="button" aria-pressed={display===i} onClick={()=>setDisplay(i)}>0{i+1} <span>{item.type}</span><Arrow/></button>)}</div><h3>{displays[display].name}</h3><p>{displays[display].description}</p><p className="fine-print">Classic green, colourful, dark bold or vintage. Final materials and display style are agreed during setup. Additional formats are available on request.</p></div>
  </div></div></section>
 

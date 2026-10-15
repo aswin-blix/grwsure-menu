@@ -1,6 +1,6 @@
 # GRWSURE Smart QR Menu — client presentation
 
-A responsive, animated Next.js presentation built from the supplied restaurant catalog. Ready for your own Vercel deployment. Nothing has been published.
+A responsive, animated Next.js presentation built from the supplied restaurant catalog. Configured for GitHub Pages and Vercel static hosting. See GITHUB-PAGES.md for the GitHub deployment workflow.
 
 ## Run locally
 
@@ -64,7 +64,7 @@ Sample ratings and restaurant details are illustrative. Some additional sample d
 
 The wording encourages honest feedback and opted-in messaging. It does not promise to suppress negative Google reviews or guarantee more sales.
 
-DM Sans and DM Serif Display are self-hosted under public/fonts with their OFL licenses and system fallbacks. All imagery and fonts are local; no external font request is needed. Search indexing is disabled by metadata because this is a client proposal; change app/layout.tsx if you later want a public marketing site indexed.
+DM Sans and DM Serif Display are stored under public/fonts with OFL licenses and bundled through next/font/local with system fallbacks. All imagery and fonts are local; no external font request is needed. Search indexing is disabled by metadata because this is a client proposal; change app/layout.tsx if you later want a public marketing site indexed.
 
 ## Local network preview and live reload
 

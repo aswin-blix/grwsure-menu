@@ -16,3 +16,9 @@ The source ZIP excludes node_modules, generated build caches and local test resu
 ## LAN HMR fix
 
 The development log confirmed Next.js blocked 192.168.31.64. Added that exact host to allowedDevOrigins. Two real WebSocket handshake tests passed against the running dev server: LAN origin upgraded successfully (101); unrelated origin was rejected with Unauthorized. Existing 4 unit tests, strict type check and production build passed. Run node --test tests/dev-origin.test.mjs while npm run dev is running to repeat the origin checks.
+
+## GitHub Pages configuration
+
+Configured static deployment via .github/workflows/pages.yml. Repository subpath comes from GitHub Pages metadata at build time. Images use the same prefix; fonts use next/font/local.
+
+Validation: 4 unit tests passed, strict TypeScript passed, production build passed with NEXT_PUBLIC_BASE_PATH=/grwsure-menu, and tests/pages-export.mjs passed against a real browser at that subpath (images, fonts, scripts, menu, display picker, annual pricing, mobile width, and no failed resource requests). Live deployment status is verified separately after publication.
