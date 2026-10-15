@@ -73,3 +73,6 @@ The development allowlist includes 192.168.31.64, the LAN address used for this 
 If the browser reports repeated /_next/hmr WebSocket failures, inspect the development terminal for a blocked-origin message. After changing the configuration, stop and restart the development server and reload the browser. On the same computer, http://localhost:3000 is also available.
 
 The React DevTools download notice is informational. Development HMR is not included in the static production export.
+## Scannable demo menu
+
+See QR-DEMO.md for the real QR-linked restaurant menu at /demo/. It shows illustrative specials, prices, ratings and an offer, with search and filters. It has no review form or data collection. Run npm run generate:qr after changing the canonical demo URL.

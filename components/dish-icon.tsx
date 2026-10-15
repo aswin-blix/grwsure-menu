@@ -1,0 +1,1 @@
+export default function DishIcon(){return <svg viewBox="0 0 70 70" aria-hidden="true"><path d="M13 43h44M19 41a16 16 0 0 1 32 0M10 47c8 13 42 13 50 0M34 20v-5M26 18l-2-4M42 18l2-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/></svg>}

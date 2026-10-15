@@ -17,3 +17,7 @@ All nine WebP assets in public/images were extracted and cropped from the user's
 The embedded page artwork was extracted with pypdf, cropped with Pillow, and encoded as WebP. Product images retain source styling. Website text is HTML rather than page screenshots. The serving-dish line icon is a simple original SVG used for illustrative demo items.
 
 Original PDF remains unmodified and is not included in the public website.
+
+## Functional demo QR
+
+public/images/demo-qr.svg and demo-qr.png are newly generated functional codes, not crops from the catalog. scripts/generate-qr.mjs encodes the published /grwsure-menu/demo/ URL using node-qrcode with a four-module quiet zone. tests/qr.test.mjs decodes the PNG using the independent jsQR decoder.

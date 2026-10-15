@@ -22,3 +22,6 @@ The development log confirmed Next.js blocked 192.168.31.64. Added that exact ho
 Configured static deployment via .github/workflows/pages.yml. Repository subpath comes from GitHub Pages metadata at build time. Images use the same prefix; fonts use next/font/local.
 
 Validation: 4 unit tests passed, strict TypeScript passed, production build passed with NEXT_PUBLIC_BASE_PATH=/grwsure-menu, and tests/pages-export.mjs passed against a real browser at that subpath (images, fonts, scripts, menu, display picker, annual pricing, mobile width, and no failed resource requests). Live deployment status is verified separately after publication.
+## QR menu demo
+
+Six unit tests pass, including independent decoding of the generated QR PNG and offer arithmetic. Strict TypeScript and the GitHub Pages subpath build pass. Export browser checks decode the rendered QR SVG screenshot, follow the demo link, exercise search/category/vegetarian filters and empty-state reset, check specials and offer pricing, verify no review form, and cover 320px layouts. Mobile and desktop menu screenshots were visually inspected. The narrow-screen QR-card overflow found in review is fixed and regression-tested. These checks do not claim a physical-phone camera test.

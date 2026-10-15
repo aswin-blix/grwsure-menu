@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { assetPath } from "../lib/assets";
+import DishIcon from "../components/dish-icon";
 import { AnimatePresence, motion, MotionConfig, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { plans, planFee, filterMenu, thankYou, demoLink } from "../lib/content.mjs";
 
@@ -20,7 +21,6 @@ function Reveal({children,className=""}:{children:React.ReactNode;className?:str
  const reduce=useReducedMotion();
  return <motion.div className={className} initial={{opacity:1,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.12}} transition={{duration:reduce?0:.6}}>{children}</motion.div>
 }
-function DishIcon(){return <svg viewBox="0 0 70 70" aria-hidden="true"><path d="M13 43h44M19 41a16 16 0 0 1 32 0M10 47c8 13 42 13 50 0M34 20v-5M26 18l-2-4M42 18l2-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/></svg>}
 
 export default function Home(){
  const reduce=useReducedMotion();
@@ -50,7 +50,7 @@ export default function Home(){
  <p className="eyebrow"><span/> A smarter welcome for your guests</p>
  <h1>One little scan.<br/>A whole new<br/><em>experience.</em></h1>
  <p className="hero-description">Your menu on their phone. Their favourite dishes, their honest feedback, and a thank-you that brings the experience full circle.</p>
- <div className="hero-actions"><a className="button" href="#story">Follow the guest journey <span aria-hidden="true">↓</span></a><a className="text-link" href="#demo">Try the demo <Arrow/></a></div>
+ <div className="hero-actions"><a className="button" href="#story">Follow the guest journey <span aria-hidden="true">↓</span></a><a className="text-link" href="#scan-demo">Try the demo <Arrow/></a></div>
  <p className="tamil" lang="ta">மெனு கார்டு வேண்டாம், போனிலேயே பாருங்க!</p>
  <div className="hero-meta"><span>For restaurants & hotels</span><i/>No app download</div>
  </div>
@@ -63,6 +63,11 @@ export default function Home(){
  <a className="scroll-note" href="#story"><span>SCROLL TO DISCOVER</span><span aria-hidden="true">↓</span></a>
  </section>
  <div className="chapter-strip"><div className="container"><span>01 <b>Scan & discover</b></span><span>02 <b>Enjoy & review</b></span><span>03 <b>Thank & reconnect</b></span></div></div>
+
+ <section className="qr-experience container" id="scan-demo" aria-labelledby="scan-heading">
+ <div className="qr-copy"><p className="eyebrow">From your screen to their table</p><h2 id="scan-heading">Scan it.<br/><em>Experience it.</em></h2><p>Point your phone camera at this QR code. You'll open a restaurant menu with special dishes, prices, sample ratings and today's offer.</p><ol className="scan-steps"><li>Open your phone camera</li><li>Scan the QR and tap the link</li><li>Explore the menu on your phone</li></ol><a className="button" href={assetPath("/demo/")}>Open the demo menu <Arrow/></a><p className="fine-print">Already on your phone? Use the button. This is an illustrative menu demo; no orders or reviews are collected.</p></div>
+ <div className="live-qr-card"><span className="eyebrow">Kaveri Kitchen · Demo</span><h3>Your table.<br/>Your menu.</h3><a href={assetPath("/demo/")} aria-label="Open Kaveri Kitchen demo menu"><img src={assetPath("/images/demo-qr.svg")} alt="Scan this QR code to open the live Kaveri Kitchen demo menu" width="250" height="250"/></a><strong>SCAN FOR THE MENU</strong><p>Specials · Prices · Ratings · Offers</p><a className="text-link" href={assetPath("/images/demo-qr.png")} download="grwsure-demo-qr.png">Download this QR ↓</a></div>
+ </section>
 
  <section className="story-section container" id="story">
  <div className="section-heading"><p className="eyebrow">A visit, reimagined</p><h2>Good hospitality.<br/><em>Now on their phone.</em></h2><p>Follow one guest from the first scan to the next hello.</p></div>
@@ -123,7 +128,7 @@ export default function Home(){
  ["Who changes our menu?","Send changes to the GRWSURE team on WhatsApp. Every plan includes 10 menu changes per month."],
  ["Does this take orders or payments?","This proposal covers digital menu browsing, dish feedback and guest follow-up. Online ordering, payments and billing integrations are not included in the listed scope. Your team continues its existing service process."],
  ["How do reviews and WhatsApp work?","Standard and Premium include dish reviews, a Google review link and WhatsApp thank-you messages. Guests choose whether to provide their details and consent to messages. Marketing messages are for opted-in guests."],
- ["Are the QR codes in these pictures live?","The pictures are catalog examples. Your own QR code is generated during setup. Use the interactive demo on this page to explore the idea."],
+ ["Are the QR codes in these pictures live?","The QR in the Scan it. Experience it. section opens our working demo menu. QR codes within the original catalog pictures are illustrative. Your restaurant gets its own QR during setup."],
  ["What should we send you?","A photo of your menu, table count, WhatsApp number and Google review link. Your logo and dish photos are helpful if you have them."]
  ].map(([q,a])=><details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}
  </div></section>

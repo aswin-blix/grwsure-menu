@@ -1,12 +1,14 @@
 import { createServer } from "node:http";
-import { readFile, stat } from "node:fs/promises";
+import { readFile, stat, mkdir } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import assert from "node:assert/strict";
+import { PNG } from "pngjs";
+import jsQR from "jsqr";
 import { chromium, expect } from "@playwright/test";
 
 const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "/grwsure-menu";
 const root = resolve("out");
-const mime = {".html":"text/html",".js":"text/javascript",".css":"text/css",".webp":"image/webp",".ttf":"font/ttf",".woff2":"font/woff2",".txt":"text/plain"};
+const mime = {".svg":"image/svg+xml",".png":"image/png",".html":"text/html",".js":"text/javascript",".css":"text/css",".webp":"image/webp",".ttf":"font/ttf",".woff2":"font/woff2",".txt":"text/plain"};
 const server = createServer(async(req,res)=>{
  try{
   const path=decodeURIComponent(new URL(req.url,"http://localhost").pathname);
@@ -40,8 +42,45 @@ try{
  assert.equal(await page.evaluate(()=>document.fonts.check('16px '+getComputedStyle(document.body).fontFamily.split(",")[0])),true);
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+
+ await page.locator("#scan-demo").scrollIntoViewIfNeeded();
+ await expect(page.locator(".live-qr-card img")).toBeVisible();
+ const qrPixels=PNG.sync.read(await page.locator(".live-qr-card img").screenshot());
+ const decoded=jsQR(new Uint8ClampedArray(qrPixels.data),qrPixels.width,qrPixels.height);
+ assert.equal(decoded?.data,"https://aswin-blix.github.io/grwsure-menu/demo/","Rendered QR must scan to the real demo URL");
+ await page.getByRole("link",{name:"Open the demo menu",exact:true}).click();
+ await page.waitForLoadState("networkidle");
+ await expect(page).toHaveURL(new RegExp(prefix+"/demo/$"));
+ await expect(page.getByRole("heading",{level:1})).toContainText("Kaveri");
+ await expect(page.locator(".special-dish")).toHaveCount(2);
+ await expect(page.locator(".special-dish").first()).toContainText("₹280");
+ await expect(page.locator(".today-offer")).toContainText("₹299");
+ await expect(page.locator(".restaurant-dish")).toHaveCount(8);
+ await page.getByRole("searchbox",{name:"Search the menu"}).fill("paneer");
+ await expect(page.locator(".restaurant-dish")).toHaveCount(1);
+ await page.getByLabel("Vegetarian only").check();
+ await page.getByRole("button",{name:"Biryani",exact:true}).click();
+ await expect(page.getByRole("status")).toContainText("No dishes found");
+ await page.getByRole("button",{name:"Show all dishes",exact:true}).click();
+ await expect(page.locator(".restaurant-dish")).toHaveCount(8);
+ await page.getByLabel("Vegetarian only").check();
+ await expect(page.locator(".restaurant-dish")).toHaveCount(3);
+ await page.getByLabel("Vegetarian only").uncheck();
+ await expect(page.locator("form, textarea")).toHaveCount(0);
+ await mkdir("test-results",{recursive:true});
+ await page.evaluate(()=>window.scrollTo({top:0,behavior:"instant"}));
+ await page.setViewportSize({width:1440,height:1000});
+ await page.screenshot({path:"test-results/demo-desktop.png",fullPage:true});
+ for(const width of [390,320]){
+  await page.setViewportSize({width,height:844});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,"Demo must fit "+width+"px");
+ }
+ await page.screenshot({path:"test-results/demo-mobile.png",fullPage:true});
+ await page.getByRole("link",{name:"Back to the QR presentation"}).click();
+ await expect(page).toHaveURL(new RegExp(prefix+"/#scan-demo$"));
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,"Presentation QR must fit 320px");
  assert.deepEqual(failures,[]);assert.deepEqual(errors,[]);
- console.log("PASS: repository subpath, images, fonts, JavaScript, menu, display picker, pricing, mobile width and no missing resources.");
+ console.log("PASS: Pages asset paths, rendered QR decoding, demo menu, specials, offers, ratings, search/category/vegetarian filters, empty state, 320px layout and no missing resources.");
 }finally{
  await browser.close();
  await new Promise(resolve=>server.close(resolve));
