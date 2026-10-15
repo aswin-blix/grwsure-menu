@@ -1,5 +1,7 @@
 # Verification — 15 October 2026
 
+This is a chronological history. Earlier sections describe earlier builds and may mention features later removed. For current behavior and handoff instructions, read [AI-HANDOFF.md](AI-HANDOFF.md).
+
 - npm test: 4/4 passed (pricing, filtering, all star ratings, contact-link payload).
 - npm run test:e2e: 7/7 passed in headless Microsoft Edge.
 - Browser checks covered 1440px, 390px and 320px layouts; a 1280x400 short window; reduced motion; keyboard skip link; category/vegetarian filters; rating previews; display selection; annual/monthly pricing; FAQ; and contact-link destinations.
@@ -45,3 +47,7 @@ Search is removed from all four guest menu pages; earlier search checks above de
 ## Three dishes per category — 15 October 2026
 
 All standard and event categories now contain exactly three dishes. The standard menu has 9 dishes; Christmas has 18; Indian Special and Diwali each have 12. Existing special/offer references remain valid. Added dishes use blank photo fields and illustrative prices. A content test enforces the count in every category, including the presentation preview. Christmas wording now identifies the menu as a curated adaptation rather than the full reference buffet.
+
+## Agent handoff documentation — 15 October 2026
+
+Documentation-only change: added AI-HANDOFF.md, linked it from README.md and AGENTS.md, and clarified historical verification records. Local documentation links resolve. All 15 unit tests, strict TypeScript and the Pages-prefixed production build passed. Browser tests were not rerun for this documentation-only change; the preceding functional release had passed local and live browser checks.

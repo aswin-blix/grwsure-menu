@@ -35,7 +35,7 @@ The presentation now includes three additional, independent QR cards under #even
 - /menus/indian-special/: cream, olive and terracotta; Indian à la carte menu.
 - /menus/diwali/: plum and gold with diya motifs; vegetarian festive menu.
 
-Christmas uses dishes and BD 6 adult / BD 3 child prices from the supplied poster. Its old 2023 date is not advertised as a current event. Indian Special adapts the second reference's categories and dishes with clearly illustrative INR prices (not currency conversions). Diwali content is illustrative. No ordering, review collection or event booking is added.
+Christmas is now a curated three-dish-per-category adaptation of the supplied poster, with BD 6 adult / BD 3 child sample prices. Its old 2023 date is not advertised as a current event. Indian Special adapts the second reference's categories and dishes with clearly illustrative INR prices (not currency conversions). Diwali content is illustrative. No ordering, review collection or event booking is added.
 
 ### Add or update an occasion
 

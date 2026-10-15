@@ -2,9 +2,13 @@
 
 A responsive, animated Next.js presentation built from the supplied restaurant catalog. Configured for GitHub Pages and Vercel static hosting. See GITHUB-PAGES.md for the GitHub deployment workflow.
 
+## Continuing with another coding agent
+
+Start with [AI-HANDOFF.md](AI-HANDOFF.md) for current decisions, architecture, validation, deployment and a copyable continuation prompt. [AGENTS.md](AGENTS.md) contains contributor rules.
+
 ## Run locally
 
-Requires Node.js 20.9+ and npm.
+Use Node.js 24 and npm to match CI.
 
 ```sh
 npm ci
@@ -45,12 +49,15 @@ npm run test:e2e
 npm run build
 ```
 
+For the Pages-equivalent build and browser check, follow [GITHUB-PAGES.md](GITHUB-PAGES.md). Run node tests/pages-export.mjs after building with NEXT_PUBLIC_BASE_PATH=/grwsure-menu.
+
 Browser tests use installed Microsoft Edge in headless mode. To use a different installed Playwright browser channel, set PLAYWRIGHT_CHANNEL (for example, chromium after installing that Playwright browser). Screenshots and test output are generated under test-results/.
 
 ## Content edits
 
 - app/page.tsx: story, contact details, FAQ, display descriptions.
-- lib/content.mjs: plans, sample dishes, pricing logic and enquiry links.
+- content/menus/*.json: dish content, prices, photos, event headings and offers.
+- lib/content.mjs: plans, menu exports/filtering, pricing logic and enquiry links.
 - app/globals.css: layout, typography and responsive styling.
 - public/images/: extracted PDF artwork.
 
